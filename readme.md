@@ -25,13 +25,22 @@
 - 엄격한 타입(strictly typed)
 - Binaryen을 활용하여 AssemblyScript 코드를 컴파일
 
-# Install
+# 개발
+
+## install
+
+- @assemblyscript/loader, assemblyscript활용
 
 ```
 yarn init
 yarn add @assemblyscript/loader
 yarn add assemblyscript -D
+npx asinit .
 ```
+
+## build
+
+- yarn run asbuild
 
 # test
 
@@ -39,10 +48,14 @@ yarn add assemblyscript -D
 yarn run test
 ```
 
-# build
+# performance test
+
+- [Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number)를 활용한 테스트
+- 로컬 서버 구동 후 index.html 파일 확인
 
 ```
-yarn run asbuild
+yarn run serve
+http://localhost:3000
 ```
 
 # Reference
