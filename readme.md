@@ -27,7 +27,7 @@
 
 # 개발
 
-## install
+### install
 
 - @assemblyscript/loader, assemblyscript활용
 
@@ -38,11 +38,11 @@ yarn add assemblyscript -D
 npx asinit .
 ```
 
-## build
+### build
 
 - yarn run asbuild
 
-# test
+### test
 
 ```
 yarn run test
