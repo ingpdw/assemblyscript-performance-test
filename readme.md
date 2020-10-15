@@ -3,6 +3,7 @@
 - C, C++, RUST, Typescript로 작성된 코드를 런타임 전에 webAssembly로 컴파일
 - 컴파일된 바이너리(wasm)를 javascript를 통하여 브라우저에서 로딩 및 사용
 - 컴파일된 binary wasm은 JavaScript엔진 내에서 실행.
+  ![emscripten](emscripten-diagram.png)
 
 # WebAssembly 장점
 
