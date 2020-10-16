@@ -1,5 +1,4 @@
 *.wasm
 *.wasm.map
 *.asm.js
-build
 node_modules

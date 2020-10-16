@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>assemblyScript perfomance test</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">assemblyScript perfomance</h1>
+      <div class="btns">
+        <button id="btnJs" type="button" class="btn">javascript</button>
+        <button id="btnAs" type="button" class="btn">webAssembly</button>
+        <select id="selectCount">
+          <option value="1">1</option>
+          <option value="1">3</option>
+          <option value="1">6</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="45">45</option>
+        </select>
+      </div>
+
+      <div class="result">
+        <label for="resultJs">JS</label>
+        <input type="text" id="resultJs" />
+        <label for="resultAs">As</label>
+        <input type="text" id="resultAs" />
+      </div>
+    </div>
+    <script>
+      (() => {
+        let count = 1;
+
+        const fibonacci = (n) => {
+          return n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+        };
+
+        const setResult = (msg, time, selector) => {
+          document.querySelector(`#${selector}`).value = `Result: ${msg}, Finish: ${time}ms`;
+        };
+
+        document.querySelector('#btnJs').addEventListener('click', () => {
+          const selector = 'resultJs';
+          const ts = performance.now();
+          const result = fibonacci(count);
+          const te = performance.now();
+          setResult(result, te - ts, selector);
+        });
+        document.querySelector('#btnAs').addEventListener('click', () => {
+          const selector = 'resultAs';
+          const ts = performance.now();
+          const result = asFibonacci(count);
+          const te = performance.now();
+          setResult(result, te - ts, selector);
+        });
+
+        document.querySelector('#selectCount').addEventListener('change', (evt) => {
+          count = evt.target.value;
+        });
+      })();
+
+      (() => {
+        WebAssembly.instantiateStreaming(fetch('/optimized.wasm'), {
+          env: {
+            abort(_msg, _file, line, column) {
+              console.error('error');
+            },
+          },
+          index: {
+            log(num) {
+              // console.log(num);
+            },
+          },
+        })
+          .then((wasm) => {
+            const exports = wasm.instance.exports;
+            window.asFibonacci = exports.fibonacci;
+          })
+          .catch(console.error);
+      })();
+    </script>
+  </body>
+</html>

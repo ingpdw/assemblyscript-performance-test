@@ -5,15 +5,35 @@
 - 컴파일된 binary wasm은 JavaScript엔진 내에서 실행.
   ![emscripten](emscripten-diagram.png)
 
+### sample code
+
+```
+<html>
+<body>
+...
+<script>
+WebAssembly.instantiateStreaming(fetch('/optimized.wasm'), {}).then((wasm) => {
+  // @TODO - Do something with the wasm!!!
+});
+</script>
+</body>
+</html>
+```
+
 # WebAssembly 장점
 
 - pre-compile되어 있기 때문에 성능이 우수함
-  - 대략 네이티브 코드보다 20%느림
-  - 일반적으로 javascript보다 빠른 연산속도
+  - 대략 네이티브 코드보다는 20%느리다고 함
+  - 하지만, 일반적으로 javascript보다는 빠른 연산속도
 - cpu, memory자원 효율
   - 저수준 언어의 활용으로 메모리 관리 가능
-  - memory-safe, 계산작업과 보안에 강함
-  - 산술연산, 그래픽연산(OpenGL)에 용이
+  - memory-safe 보안에 강함
+  - 산술연산, 그래픽연산(OpenGL)처리에 용이
+
+# WebAssembly 장점
+
+- wasm파일 초기 로딩 비용(최초 한번 로딩)
+- compile의 번거로움
 
 # Browser supported
 
@@ -21,7 +41,7 @@
 
 # AssemblyScript
 
-- wasm을 개발할 수 있는 방법 중 하나
+- wasm을 생산 및 개발할 수 있는 방법 중 하나
 - typeScript의 하위 언어
 - 엄격한 타입(strictly typed)
 - Binaryen을 활용하여 AssemblyScript 코드를 컴파일
@@ -30,7 +50,7 @@
 
 ### install
 
-- @assemblyscript/loader, assemblyscript활용
+- @assemblyscript/loader, assemblyscript 활용
 
 ```
 yarn init
