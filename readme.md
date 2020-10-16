@@ -30,7 +30,7 @@ WebAssembly.instantiateStreaming(fetch('/optimized.wasm'), {}).then((wasm) => {
   - memory-safe 보안에 강함
   - 산술연산, 그래픽연산(OpenGL)처리에 용이
 
-# WebAssembly 장점
+# WebAssembly 단점
 
 - wasm파일 초기 로딩 비용(최초 한번 로딩)
 - compile의 번거로움
