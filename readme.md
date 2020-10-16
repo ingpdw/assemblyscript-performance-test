@@ -14,6 +14,8 @@
 <script>
 WebAssembly.instantiateStreaming(fetch('/optimized.wasm'), {}).then((wasm) => {
   // @TODO - Do something with the wasm!!!
+  const exports = wasm.instance.exports;
+  exports.wasmMethod('hello world');
 });
 </script>
 </body>
@@ -61,7 +63,9 @@ npx asinit .
 
 ### build
 
-- yarn run asbuild
+```
+yarn run asbuild
+```
 
 ### test
 
@@ -95,8 +99,8 @@ http://localhost:3000
 
 - 대부분의 브라우저에서 Webassembly API를 지원함
 - 다양한 Webassembly 개발/디버깅 툴들이 생산되고 있음
-- 실서비스 활용사례는 많지 않음, 많아질듯
-- DOM제어, Ajax데이터, 화면 컨트롤 등이 용이한 javascript와 공존할 듯
+- 실서비스 활용사례는 많지 않음, (많아질 듯)
+- DOM제어, Ajax, 화면 컨트롤 등이 용이한 javascript와 공존할 듯
 
 # Reference
 
