@@ -1469,6 +1469,7 @@
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
   i32.const 4
   call $assembly/index/fibonacci
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<i32>
@@ -1493,6 +1494,12 @@
   local.tee $3
   i32.const 6765
   call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<i32>#toBe
+  i32.const -100
+  call $assembly/index/fibonacci
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/expect<i32>
+  local.tee $4
+  i32.const 0
+  call $node_modules/@as-pect/assembly/assembly/internal/Expectation/Expectation<i32>#toBe
   local.get $0
   call $~lib/rt/pure/__release
   local.get $1
@@ -1500,6 +1507,8 @@
   local.get $2
   call $~lib/rt/pure/__release
   local.get $3
+  call $~lib/rt/pure/__release
+  local.get $4
   call $~lib/rt/pure/__release
  )
  (func $start:assembly/__tests__/index.spec~anonymous|0
