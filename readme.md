@@ -104,7 +104,7 @@ http://localhost:3000
 - [Webassembly](https://developer.mozilla.org/ko/docs/WebAssembly)
 - [Assemblyscript](https://www.assemblyscript.org/)
 - [무엇이 WebAssembly를 빠르게 만드나?](http://hacks.mozilla.or.kr/2017/05/why-webassembly-is-faster-than-asm-js/)
-- [js vs C++ vs Webassembly 속도] https://www.youtube.com/watch?v=aC_QLLilwso
+- [js vs C++ vs Webassembly 속도](https://www.youtube.com/watch?v=aC_QLLilwso)
 - [Webassembly example](https://wasmbyexample.dev/home.en-us.html)
 - [WasmExplorer](https://mbebenita.github.io/WasmExplorer/)
 - [WasmFiddle](https://wasdk.github.io/WasmFiddle/)
