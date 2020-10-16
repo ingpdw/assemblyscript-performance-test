@@ -34,6 +34,13 @@ input {
   font-size: 1em;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
 .result {
   margin-top: 2em;
 }

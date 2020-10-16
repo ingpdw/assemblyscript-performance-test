@@ -37,7 +37,7 @@ WebAssembly.instantiateStreaming(fetch('/optimized.wasm'), {}).then((wasm) => {
 
 # Browser supported
 
-[wasm](https://caniuse.com/wasm)
+[wasm browser supported](https://caniuse.com/wasm)
 
 # AssemblyScript
 
@@ -79,7 +79,32 @@ yarn run serve
 http://localhost:3000
 ```
 
+#### 결과
+
+- 복잡한 산술연산에서는 javascript보다 webassembly의 성능이 우수함
+- 단순 연산은 javascript에서의 처리가 빠른 경우도 있음
+  - (브라우저의 js엔진 및 chrome JIT 성능이 우수하기 때문에)
+
+# demo
+
+- [google earth](https://earth.google.com/web/)
+- [funkykarts](https://www.funkykarts.rocks/demo.html)
+- [webassembly-demo](https://github.com/topics/webassembly-demo)
+
+# 향후 전망
+
+- 대부분의 브라우저에서 Webassembly API를 지원함
+- 다양한 Webassembly 개발/디버깅 툴들이 생산되고 있음
+- 실서비스 활용사례는 많지 않음, 많아질듯
+- DOM제어, Ajax데이터, 화면 컨트롤 등이 용이한 javascript와 공존할 듯
+
 # Reference
 
-- https://www.assemblyscript.org/
-- https://developer.mozilla.org/ko/docs/WebAssembly
+- [Webassembly.org](https://webassembly.org/)
+- [Webassembly](https://developer.mozilla.org/ko/docs/WebAssembly)
+- [Assemblyscript](https://www.assemblyscript.org/)
+- [무엇이 WebAssembly를 빠르게 만드나?](http://hacks.mozilla.or.kr/2017/05/why-webassembly-is-faster-than-asm-js/)
+- [js vs C++ vs Webassembly 속도] https://www.youtube.com/watch?v=aC_QLLilwso
+- [Webassembly example](https://wasmbyexample.dev/home.en-us.html)
+- [WasmExplorer](https://mbebenita.github.io/WasmExplorer/)
+- [WasmFiddle](https://wasdk.github.io/WasmFiddle/)
